@@ -116,6 +116,10 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -195,10 +199,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="30" />
-    <option name="y" value="25" />
-    <option name="width" value="1190" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="3" />
+    <option name="y" value="12" />
+    <option name="width" value="1118" />
     <option name="height" value="664" />
   </component>
   <component name="ProjectView">
@@ -206,8 +210,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -392,16 +394,18 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566999833182" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ssmdemo" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567062859069" />
+    <property name="last_opened_file_path" value="D:/Git/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -574,6 +578,7 @@
       <workItem from="1566912305064" duration="2567000" />
       <workItem from="1566952799079" duration="33144000" />
       <workItem from="1567038444697" duration="759000" />
+      <workItem from="1567059156573" duration="3688000" />
     </task>
     <servers />
   </component>
@@ -595,13 +600,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293910000" />
+    <option name="totallyTimeSpent" value="297598000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="25" width="1190" height="664" extended-state="1" />
-    <editor active="true" />
+    <frame x="3" y="12" width="1118" height="664" extended-state="1" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3017699" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32797733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
