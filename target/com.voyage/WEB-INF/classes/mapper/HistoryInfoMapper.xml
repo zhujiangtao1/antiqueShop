@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sailing.dao.HistoryInfoMapper">
+    <resultMap id="baseInfoResultMap" type="com.sailing.entity.History">
+        <id column="History_id" property="historyId"></id>
+        <result column="antique_id" property="antId"></result>
+        <result column="Buyer_id" property="buyerId"></result>
+        <result column="Seller_id" property="sellerId"></result>
+        <result column="Baseinfo" property="Baseinfo"></result>
+        <result column="Address" property="Address"></result>
+        <result column="Order_time" property="orderTime"></result>
+        <result column="pic_url" property="pic_url"></result>
+        <result column="price" property="price"></result>
+    </resultMap>
+    <select id="selectBySellerid" resultMap="baseInfoResultMap">
+    select *
+    from  history_order
+    where Seller_id=#{uid}
+    </select>
+    <select id="selectByBuyerid" resultMap="baseInfoResultMap">
+    select *
+    from  history_order
+    where Buyer_id=#{uid}
+    </select>
+ <insert id="inserHistory" parameterType="com.sailing.entity.History">
+     insert into history_order
+     <trim prefix="(" suffix=")" suffixOverrides=",">
+         <if test="historyId !=null">
+             History_id,
+         </if>
+         <if test="antId !=null">
+             antique_id,
+         </if>
+         <if test="buyerId !=null">
+             Buyer_id,
+         </if>
+         <if test="sellerId !=null">
+             Seller_id,
+         </if>
+         <if test="Base !=null">
+             Baseinfo,
+         </if>
+         <if test="Address !=null">
+             Address,
+         </if>
+         <if test="orderTime !=null">
+             Order_time,
+         </if>
+         <if test="pic_url !=null">
+             pic_url,
+         </if>
+         <if test="price !=null">
+             price,
+         </if>
+     </trim>
+     <trim prefix="values (" suffix=")" suffixOverrides=",">
+         <if test="historyId !=null">
+             #{historyId},
+         </if>
+         <if test="antId !=null">
+             #{antId},
+         </if>
+         <if test="buyerId !=null">
+             #{buyerId},
+         </if>
+         <if test="sellerId !=null">
+             #{sellerId},
+         </if>
+         <if test="Base !=null">
+             #{Base},
+         </if>
+         <if test="Address !=null">
+             #{Address},
+         </if>
+         <if test="orderTime !=null">
+             #{orderTime},
+         </if>
+         <if test="pic_url !=null">
+             #{pic_url},
+         </if>
+         <if test="price !=null">
+             #{price},
+         </if>
+     </trim>
+ </insert>
+</mapper>

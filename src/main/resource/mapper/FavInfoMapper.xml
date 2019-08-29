@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sailing.dao.FavInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sailing.entity.Fav">
+        <id column="fav_id" property="favid"></id>
+        <result column="antique_id"  property="antId"></result>
+        <result column="uid"  property="uid"></result>
+    </resultMap>
+
+    <insert id="insertSelective" parameterType="com.sailing.entity.Fav">
+        insert into fav
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="favid !=null">
+                fav_id,
+            </if>
+            <if test="antId !=null">
+                antique_id,
+            </if>
+            <if test="uid !=null">
+                uid,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="favid !=null">
+                #{favid},
+            </if>
+            <if test="antId !=null">
+                #{antId},
+            </if>
+            <if test="uid !=null">
+                #{uid},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectByuidAndAntid" resultMap="BaseResultMap">
+        select *
+        from fav
+        where uid = #{uid,jdbcType=VARCHAR} and antique_id=#{antId}
+    </select>
+    <select id="selectByuid" resultMap="BaseResultMap">
+        select *
+        from fav
+        where uid = #{uid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByantId" parameterType="java.lang.String">
+        delete
+        from fav
+        where antique_id=#{antId}
+    </delete>
+    <delete id="deleteByFavid" parameterType="java.lang.String">
+        delete
+        from fav
+        where fav_id=#{favid}
+    </delete>
+</mapper>

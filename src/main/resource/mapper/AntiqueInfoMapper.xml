@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sailing.dao.AntiqueInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sailing.entity.AntiqueInfo">
+        <id column="antique_id" jdbcType="VARCHAR" property="antId" />
+        <result column="years" jdbcType="VARCHAR" property="years" />
+        <result column="category" jdbcType="VARCHAR" property="category" />
+        <result column="antique_name" jdbcType="VARCHAR" property="antique_name" />
+        <result column="price"  property="price" />
+        <result column="antique_damage" jdbcType="VARCHAR" property="antique_damage" />
+        <result column="size" jdbcType="VARCHAR" property="size" />
+        <result column="jian" jdbcType="VARCHAR" property="jian" />
+        <result column="islocked" jdbcType="VARCHAR" property="islocked" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="uid" jdbcType="VARCHAR" property="uid" />
+    </resultMap>
+    <select id="selectAntiqueInfoAll"  resultMap="BaseResultMap">
+        select *
+        from antique_info
+    </select>
+    <select id="selectAntiqueByuid" resultMap="BaseResultMap">
+        select *
+        from antique_info
+        where uid = #{uid,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAntiqueInfoByAntid" resultMap="BaseResultMap">
+        select *
+        from antique_info
+        where antique_id = #{antId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByantId" parameterType="java.lang.String">
+        delete
+        from antique_info
+        where antique_id = #{antId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insertSelective" parameterType="com.sailing.entity.AntiqueInfo" >
+        insert into antique_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="antId !=null">
+            antique_id ,
+        </if>
+            <if test="years !=null">
+                years ,
+            </if>
+            <if test="category !=null">
+                category ,
+            </if>
+            <if test="antique_name !=null">
+                antique_name ,
+            </if>
+            <if test="price !=null">
+                price ,
+            </if>
+            <if test="antique_damage !=null">
+                antique_damage ,
+            </if>
+            <if test="size !=null">
+                size ,
+            </if>
+            <if test="jian !=null">
+                jian ,
+            </if>
+            <if test="islocked !=null">
+                islocked ,
+            </if>
+            <if test="uid !=null">
+                uid ,
+            </if>
+            <if test="address !=null">
+                address ,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="antId !=null">
+                #{antId},
+            </if>
+            <if test="years !=null">
+                #{years},
+            </if>
+            <if test="category !=null">
+                #{category},
+            </if>
+            <if test="antique_name !=null">
+                #{antique_name},
+            </if>
+            <if test="price !=null">
+                #{price},
+            </if>
+            <if test="antique_damage !=null">
+                #{antique_damage},
+            </if>
+            <if test="size !=null">
+                #{size},
+            </if>
+            <if test="jian !=null">
+                #{jian},
+            </if>
+            <if test="islocked !=null">
+                #{islocked},
+            </if>
+            <if test="uid !=null">
+                #{uid},
+            </if>
+            <if test="address !=null">
+                #{address},
+            </if>
+        </trim>
+    </insert>
+    <update id="updataByAntId" parameterType="com.sailing.entity.AntiqueInfo">
+        update  antique_info
+
+            <set>
+                <if test="years !=null">
+                    years=#{years},
+                </if>
+                <if test="category !=null">
+                    category= #{category},
+                </if>
+                <if test="antique_name !=null">
+                    antique_name=#{antique_name},
+                </if>
+                <if test="price !=null">
+                    price= #{price},
+                </if>
+                <if test="antique_damage !=null">
+                    antique_damage= #{antique_damage},
+                </if>
+                <if test="size !=null">
+                    size=#{size},
+                </if>
+                <if test="jian !=null">
+                    jian= #{jian},
+                </if>
+                <if test="islocked !=null">
+                    islocked=#{islocked},
+                </if>
+                <if test="uid !=null">
+                    uid= #{uid},
+                </if>
+                <if test="address !=null">
+                    address= #{address},
+                </if>
+            </set>
+       where antique_id=#{antId}
+    </update>
+</mapper>

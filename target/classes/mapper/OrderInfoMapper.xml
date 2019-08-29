@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sailing.dao.OrderInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sailing.entity.Order">
+        <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+        <result column="antique_id" jdbcType="VARCHAR" property="antId" />
+        <result column="Baseinfo" jdbcType="VARCHAR" property="baseinfo" />
+        <result column="Ant_price" jdbcType="VARCHAR" property="antPrice" />
+        <result column="Seller_id"  property="sellerId" />
+        <result column="Address" jdbcType="VARCHAR" property="address" />
+        <result column="Buyer_id" jdbcType="VARCHAR" property="buyerId" />
+        <result column="Order_time" jdbcType="VARCHAR" property="orderTime" />
+        <result column="Order_status" jdbcType="VARCHAR" property="orderStatus" />
+    </resultMap>
+    <insert id="insertSelective" parameterType="com.sailing.entity.Order">
+        insert  into antique_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId !=null">
+                order_id,
+            </if>
+
+            <if test="antId !=null">
+                antique_id,
+            </if>
+
+            <if test="baseinfo !=null">
+                Baseinfo,
+            </if>
+
+
+            <if test="antPrice !=null">
+                Ant_price,
+            </if>
+
+            <if test="sellerId !=null">
+                Seller_id,
+            </if>
+
+
+
+            <if test="address !=null">
+                Address,
+            </if>
+
+            <if test="buyerId !=null">
+                Buyer_id,
+            </if>
+
+            <if test="orderTime !=null">
+                Order_time,
+            </if>
+
+            <if test="orderStatus !=null">
+                Order_status,
+            </if>
+        </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="orderId !=null">
+                    #{orderId},
+                </if>
+                <if test="antId !=null">
+                    #{antId},
+                </if>
+                <if test="baseinfo !=null">
+                    #{baseinfo},
+                </if>
+
+                <if test="antPrice !=null">
+                    #{antPrice},
+                </if>
+
+                <if test="sellerId !=null">
+                    #{sellerId},
+                </if>
+
+                <if test="address !=null">
+                    #{address},
+                </if>
+                <if test="buyerId !=null">
+                    #{buyerId},
+                </if>
+                <if test="orderTime !=null">
+                    #{orderTime},
+                </if>
+                <if test="orderStatus !=null">
+                    #{orderStatus},
+                </if>
+            </trim>
+         </insert>
+    <select id="selectByuidAndantid" resultType="com.sailing.entity.Order">
+         SELECT *
+         from  antique_order
+         where antique_id=#{antId} and Buyer_id=#{uid}
+    </select>
+<select id="selectByuid" resultMap="BaseResultMap">
+    select *
+    from  antique_order
+    where Buyer_id=#{uid}
+</select>
+    <select id="selectBySellerid" resultMap="BaseResultMap">
+    select *
+    from  antique_order
+    where Seller_id=#{uid}
+</select>
+    <select id="selectByOredrId" resultMap="BaseResultMap">
+    select *
+    from  antique_order
+    where order_id=#{orderId}
+</select>
+    <delete id="deleteByOrderId" parameterType="java.lang.String">
+        delete from antique_order
+    where order_id = #{orderId,jdbcType=VARCHAR}
+    </delete>
+    <update id="updateSelectiveByOrderId" parameterType="com.sailing.entity.Order">
+     update  antique_order
+     <set>
+         <if test="antId !=null">
+             antique_id=#{antId},
+         </if>
+
+         <if test="baseinfo !=null">
+             Baseinfo=#{baseinfo},
+         </if>
+
+
+         <if test="antPrice !=null">
+             Ant_price=#{antPrice},
+         </if>
+
+         <if test="sellerId !=null">
+             Seller_id=#{sellerId},
+         </if>
+
+         <if test="address !=null">
+             Address=#{address},
+         </if>
+
+         <if test="buyerId !=null">
+             Buyer_id=#{buyerId},
+         </if>
+
+         <if test="orderTime !=null">
+             Order_time=#{orderTime},
+         </if>
+
+         <if test="orderStatus !=null">
+             Order_status=#{orderStatus},
+         </if>
+     </set>
+        where order_id = #{orderId,jdbcType=VARCHAR}
+    </update>
+</mapper>
