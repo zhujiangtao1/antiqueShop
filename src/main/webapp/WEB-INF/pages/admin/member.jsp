@@ -92,6 +92,11 @@
                                 <i class="fa fa-lightbulb-o fa-fw"></i> 古玩管理
                             </a>
                         </li>
+                        <li class="list-group-item">
+                            <a href="/admin/comment">
+                                <i class="fa fa-comment-o fa-fw"></i> 评论管理
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

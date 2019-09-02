@@ -14,6 +14,28 @@
         from comment
         where antique_id=#{antid}
     </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select *
+        from comment
+       where 1=1
+        <if test="username !=null and username != ''">
+           AND username like concat('%',#{username},'%')
+       </if>
+       <if test="antid !=null and antid != ''">
+           AND antique_id like concat('%',#{antid},'%')
+       </if>
+
+
+    </select>
+    <select id="selectAllno" resultMap="BaseResultMap">
+        select  *
+        from comment
+    </select>
+    <delete id="delByCommentId" parameterType="java.lang.Integer">
+        delete
+        from comment
+        where comment_id=#{connentid}
+    </delete>
     <insert id="insertComment" keyProperty="comment_id" useGeneratedKeys="true" parameterType="com.sailing.entity.Comment">
         insert into comment
         <trim prefix="(" suffix=")" suffixOverrides=",">

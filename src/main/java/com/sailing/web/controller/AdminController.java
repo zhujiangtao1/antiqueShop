@@ -4,10 +4,12 @@ package com.sailing.web.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sailing.entity.AntiqueInfo;
+import com.sailing.entity.Comment;
 import com.sailing.entity.Pic;
 import com.sailing.entity.User;
 import com.sailing.entity.Vo.PicAntInfoVo;
 import com.sailing.service.AntiqueInfoService;
+import com.sailing.service.CommentService;
 import com.sailing.service.PicInfoService;
 import com.sailing.service.UserService;
 import com.sailing.util.Msg;
@@ -32,6 +34,8 @@ public class AdminController  {
     private AntiqueInfoService antiqueInfoService;
     @Autowired
     private PicInfoService picInfoService;
+    @Autowired
+    private CommentService commentService;
 
 
 
@@ -45,7 +49,10 @@ public class AdminController  {
     public String adminLoginByantique(){
         return "/admin/antique";
     }
-
+    @RequestMapping("/comment")
+    public String adminComment(){
+        return "/admin/comment";
+    }
 
 
    @RequestMapping("/antAll")
@@ -124,4 +131,40 @@ public class AdminController  {
         userService.updateByPrimaryKeySelective(user);
         return "1";
     }
+    @RequestMapping("/showcomment")
+    @ResponseBody
+    public Msg showAllComment(@RequestParam(value = "pn",defaultValue = "1") int pn,Comment comment ){
+        // 引入PageHelper分页插件
+        // 在查询之前只需要调用，传入页码，以及每页的大小
+        System.out.println("222222222222222"+comment);
+        PageHelper.startPage(pn, 3);
+        // startPage后面紧跟的这个查询就是一个分页查询
+        List <Comment>comments=commentService.selectAllno();
+        System.out.println("11111111111"+comments);
+        // 使用pageInfo包装查询后的结果，只需要将pageInfo交给页面就行了。
+        // 封装了详细的分页信息,包括有我们查询出来的数据，传入连续显示的页数
+        PageInfo page = new PageInfo(comments, 3);
+        return  Msg.success().add("pageInfo",page);
+    }
+    @RequestMapping("/delcomment")
+    @ResponseBody
+    public String delComment(HttpServletRequest request){
+        int commentid=Integer.parseInt(request.getParameter("id"));
+        commentService.delByCommentId(commentid);
+        return "success";
+    }
+    @RequestMapping("/showkey")
+    @ResponseBody
+    public Msg showAllKey(@RequestParam(value = "pn",defaultValue = "1") int pn,HttpServletRequest request,Comment comment){
+        System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+comment);
+        PageHelper.startPage(pn, 3);
+        // startPage后面紧跟的这个查询就是一个分页查询
+        List <Comment>comments=commentService.selectAll(comment);
+        System.out.println("11111111111"+comments);
+        // 使用pageInfo包装查询后的结果，只需要将pageInfo交给页面就行了。
+        // 封装了详细的分页信息,包括有我们查询出来的数据，传入连续显示的页数
+        PageInfo page = new PageInfo(comments, 3);
+        return  Msg.success().add("pageInfo",page);
+    }
+
 }

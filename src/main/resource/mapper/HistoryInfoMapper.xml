@@ -37,7 +37,7 @@
          <if test="sellerId !=null">
              Seller_id,
          </if>
-         <if test="Base !=null">
+         <if test="Baseinfo !=null">
              Baseinfo,
          </if>
          <if test="Address !=null">
@@ -66,8 +66,8 @@
          <if test="sellerId !=null">
              #{sellerId},
          </if>
-         <if test="Base !=null">
-             #{Base},
+         <if test="Baseinfo !=null">
+             #{Baseinfo},
          </if>
          <if test="Address !=null">
              #{Address},

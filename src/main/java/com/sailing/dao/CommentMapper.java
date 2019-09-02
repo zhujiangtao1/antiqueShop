@@ -9,4 +9,11 @@ public interface CommentMapper {
     List<Comment>selectByAntid(String antid);
     //新增评论
     int insertComment(Comment comment);
+    //查找所有评论
+    List<Comment>selectAll(Comment comment);
+    //查找所有评论
+    List<Comment>selectAllno();
+    //删除评论
+    int delByCommentId(int commentid);
+
 }

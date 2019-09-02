@@ -19,4 +19,19 @@ public class CommentServiceImpl implements CommentService {
     public int insertComment(Comment comment) {
         return commentMapper.insertComment(comment);
     }
+
+    @Override
+    public List<Comment> selectAll( Comment comment) {
+        return commentMapper.selectAll(comment);
+    }
+
+    @Override
+    public List<Comment> selectAllno() {
+        return commentMapper.selectAllno();
+    }
+
+    @Override
+    public int delByCommentId(int commentid) {
+        return commentMapper.delByCommentId(commentid);
+    }
 }

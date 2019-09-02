@@ -1444,7 +1444,7 @@
                 <td>
                     <p><a href="/page/index">首页</a></p>
                     <p><a href="/page/showCar" >我要买古玩</a></p>
-                    <p><a  href="j/page/index;">我要卖古玩</a></p>
+                    <p><a  href="/page/index">我要卖古玩</a></p>
                     <p> <a href="${basePath}/page/user" >个人中心</a></p>
                     <img class="contact_us"alt="" src="images/contact.png"style="width:60px;position:absolute;right:50px;top:40px;">
                 </td>
