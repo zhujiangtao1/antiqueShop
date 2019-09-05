@@ -70,13 +70,7 @@
 	</div>
 </div>
 
-<div class="lianxiway"style="position:fixed;z-index:1;right:0px;width:80px;height:270px;background-color:#fff;border:1px solid #6e6e6e;line-height:2;">
-				<div class="lianxi">
-				<p>联系电话：098-8765-728</p>
-				<p>地址：青青草原羊村你喜哥</p>
-				<p class="shoufang"style="text-align:center;">收起</p>
-				</div>
-</div>
+
 
 
 <div>

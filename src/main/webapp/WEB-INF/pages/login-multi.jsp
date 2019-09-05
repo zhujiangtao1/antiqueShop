@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
    <!-- START wrapper-->
-   <div style="height: 100%; padding: 20px 0; background-image:url(${basePath}/resources/img/background.jpg) " class="row row-table">
+   <div style="height: 100%; padding: 20px 0; background-image:url(${basePath}/resources/img/back2.jpg) " class="row row-table">
       <div class="col-lg-3 col-md-6 col-sm-8 col-xs-12 align-middle">
          <div data-toggle="play-animation" data-play="fadeInDown" data-offset="0" class="panel b0">
             <p class="text-center mb-lg">

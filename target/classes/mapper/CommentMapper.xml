@@ -24,7 +24,7 @@
        <if test="antid !=null and antid != ''">
            AND antique_id like concat('%',#{antid},'%')
        </if>
-        
+
 
     </select>
     <select id="selectAllno" resultMap="BaseResultMap">
